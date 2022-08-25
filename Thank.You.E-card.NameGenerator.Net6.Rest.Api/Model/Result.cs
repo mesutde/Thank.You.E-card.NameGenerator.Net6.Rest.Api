@@ -2,6 +2,7 @@
 {
     public class Result
     {
-        public string base64Image { get; set; }
+        public string ImageUrl { get; set; }
+        public string Base64Image { get; set; }
     }
 }

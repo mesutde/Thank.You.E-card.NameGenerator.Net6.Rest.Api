@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Globalization;
 using Thank.You.E_card.NameGenerator.Net6.Rest.Api.Model;
@@ -27,6 +28,12 @@ namespace Thank.You.E_card.NameGenerator.Net6.Rest.Api.Controllers
             Graphics graphicsImage = Graphics.FromImage(bitmap);
 
             string Str_TextOnImage = "Sevgili " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nameGenerator.NameSurname);
+
+            if (!String.IsNullOrEmpty(nameGenerator.QrCardVerificationUrl))
+            {
+                Image ImgQrCode = Helper.Helper.CreateLinkToQrCodeFromSufeinet(nameGenerator.QrCardVerificationUrl);
+                graphicsImage.DrawImage(ImgQrCode, 60, 550, 100, 100);
+            }
 
             int font_x = 460;
             int font_y = 275;
@@ -64,13 +71,17 @@ namespace Thank.You.E_card.NameGenerator.Net6.Rest.Api.Controllers
             graphicsImage.DrawString(Str_TextOnImage, myCustomFont, new SolidBrush(StringColor), new Point(font_x, font_y),
                 stringformat);
 
-            //  bitmap.Save("msmt2.jpg", ImageFormat.Jpeg);
+            bitmap.Save(contentRootPath + "Gift_Card_Cagdas.jpg", ImageFormat.Jpeg);
 
             retVal.Result = true;
             retVal.ResultCode = 200;
             retVal.Message = "İşlem Başarılı";
             retVal.Comment = " ";
-            retVal.Data = new Result { base64Image = "data:image/png;base64," + Convert.ToBase64String(Helper.Helper.ImageToByteArray(bitmap)) };
+            retVal.Data = new Result
+            {
+                ImageUrl = contentRootPath + "Gift_Card_Cagdas.jpg",
+                Base64Image = "data:image/png;base64," + Convert.ToBase64String(Helper.Helper.ImageToByteArray(bitmap))
+            };
             retVal.UpdateTime = DateTime.Now.ToString();
 
             return retVal;

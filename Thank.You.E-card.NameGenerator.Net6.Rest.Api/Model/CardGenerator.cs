@@ -3,5 +3,6 @@
     public class CardGenerator
     {
         public string NameSurname { get; set; }
+        public string QrCardVerificationUrl { get; set; }
     }
 }
