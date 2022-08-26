@@ -6,8 +6,8 @@
 örnek olarak da çağdaş yaşamı destekleme derneğinin teşekkür ecard templatesini kullandım.
 siz farklı kurumlara özel templateyi de entegre edebilirsiniz.
 
-![image](https://user-images.githubusercontent.com/16664425/186515131-1790652d-414b-441e-984f-04fdcb431071.png)
-![image](https://user-images.githubusercontent.com/16664425/186515228-8400b2b9-f6dc-425a-966b-5d3b1bedc2d4.png)
+yeni güncellenen kod ile dilerseniz e-kartın içine qr code ile doğrulama imajı yerleştirmeyi koydum. qrCardVerificationUrl boş bırakırsanız qr code imajını yerleştirmez.
 
+![image](https://user-images.githubusercontent.com/16664425/186814108-1ef4ef87-b2e2-4151-8a46-c0b38d57dcb8.png)
+![image](https://user-images.githubusercontent.com/16664425/186814174-1528e356-3195-46c7-ac54-dfc6234cea59.png)
 
-![image](https://user-images.githubusercontent.com/16664425/186514895-ba49907d-2b30-43e3-9e39-b16f297eb397.png)
